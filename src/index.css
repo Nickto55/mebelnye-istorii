@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 24% 95%;
+    --foreground: 0 0% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 18%;
+    --primary: 110 8% 51%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 36 18% 91%;
+    --secondary-foreground: 0 0% 18%;
+    --muted: 36 18% 91%;
+    --muted-foreground: 0 0% 42%;
+    --accent: 37 32% 57%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 36 14% 88%;
+    --input: 36 14% 88%;
+    --ring: 110 8% 51%;
+    --radius: 0.75rem;
+    
+    /* Custom colors */
+    --bg-primary: #F6F4F1;
+    --bg-secondary: #FFFFFF;
+    --bg-tertiary: #EDE9E4;
+    --accent-green: #7D8B7A;
+    --accent-green-hover: #6A7868;
+    --accent-copper: #B8956B;
+    --accent-copper-hover: #A6845D;
+    --text-primary: #2D2D2D;
+    --text-secondary: #6B6B6B;
+    --border-color: #E0DCD6;
+    --shadow: rgba(45, 45, 45, 0.08);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium uppercase tracking-wider text-white rounded-lg transition-all duration-300;
+    background-color: var(--accent-green);
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--accent-green-hover);
+    transform: translateY(-2px);
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium uppercase tracking-wider rounded-lg border-2 transition-all duration-300;
+    border-color: var(--accent-green);
+    color: var(--accent-green);
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--accent-green);
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  .btn-outline-white {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium uppercase tracking-wider text-white border-2 border-white rounded-lg transition-all duration-300;
+  }
+  
+  .btn-outline-white:hover {
+    background-color: white;
+    color: var(--text-primary);
+    transform: translateY(-2px);
+  }
+  
+  .section-padding {
+    @apply px-6 md:px-8 lg:px-12 xl:px-16;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-400;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(45, 45, 45, 0.12);
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-green);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-green-hover);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--accent-green);
+  color: white;
+}
