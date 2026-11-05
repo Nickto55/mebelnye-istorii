@@ -1,73 +1,53 @@
-# React + TypeScript + Vite
+# Мебельные истории
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Сайт мастерской корпусной мебели из Санкт-Петербурга: каталог, портфолио,
+калькулятор стоимости, отзывы и контакты.
 
-Currently, two official plugins are available:
+**Стек:** React 19 · TypeScript · Vite 7 · Tailwind CSS 3 · lucide-react
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Локальная разработка
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev        # dev-сервер
+npm run build      # production-сборка в dist/
+npm run preview    # локальный предпросмотр сборки
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Деплой на Ubuntu VPS (Docker)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Всё настраивается одним скриптом — он ставит Docker, поднимает контейнер
+сайта и отдельный контейнер nginx как реверс-прокси для домена:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone <repo> && cd mebelnye-istorii
+chmod +x install.sh
+./install.sh mebelnye-istorii.ru   # или без аргумента — спросит домен
+```
+
+Требование: A-запись домена (и `www`) указывает на IP сервера.
+
+Структура деплоя:
+
+| Файл | Назначение |
+|---|---|
+| `Dockerfile` | Многостадийная сборка: Vite build → nginx со статикой |
+| `docker-compose.yml` | Два сервиса: `site` (статика) и `proxy` (реверс-прокси) |
+| `deploy/nginx/site.conf` | Nginx внутри контейнера сайта (SPA, кэширование) |
+| `deploy/nginx/proxy-http.conf.template` | Реверс-прокси, вариант HTTP (с точкой для ACME-проверки) |
+| `deploy/nginx/proxy-ssl.conf.template` | Реверс-прокси, вариант HTTPS |
+| `deploy/certbot/` | Сертификаты Let's Encrypt (создаётся при установке) |
+| `install.sh` | Установка Docker, запуск, выпуск SSL и автопродление |
+
+### HTTPS (Let's Encrypt, бесплатно)
+
+`install.sh` сам выпускает сертификат через certbot (webroot), переключает
+прокси на HTTPS (редирект 80 → 443) и добавляет задание в cron
+(`/etc/cron.d/mebelnye-istorii-ssl`) — продление проверяется ежедневно,
+сертификат обновляется автоматически за 30 дней до истечения.
+
+### Обновление сайта на сервере
+
+```bash
+git pull && docker compose up -d --build
 ```

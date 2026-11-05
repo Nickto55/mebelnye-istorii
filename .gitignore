@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+*.log
+# Сертификаты и сгенерированный шаблон прокси — не в репозиторий
+deploy/certbot/
+deploy/nginx/proxy.conf.template

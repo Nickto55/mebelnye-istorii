@@ -1,0 +1,25 @@
+services:
+  # Контейнер сайта: собирает Vite-проект и раздаёт статику
+  site:
+    build: .
+    container_name: mebelnye-istorii-site
+    restart: unless-stopped
+    expose:
+      - "80"
+
+  # Отдельный контейнер nginx: реверс-прокси для домена
+  proxy:
+    image: nginx:alpine
+    container_name: mebelnye-istorii-proxy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN}
+    volumes:
+      - ./deploy/nginx/proxy.conf.template:/etc/nginx/templates/default.conf.template:ro
+      - ./deploy/certbot/www:/var/www/certbot
+      - ./deploy/certbot/conf:/etc/letsencrypt
+    depends_on:
+      - site
