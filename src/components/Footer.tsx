@@ -12,26 +12,35 @@ export function Footer({ onNavigate }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
+            <img 
+              src="/logo.jpg" 
+              alt="Мебельные истории" 
+              className="h-16 w-16 rounded-xl object-cover mb-6"
+            />
             <h3 
               className="text-2xl font-semibold mb-6"
               style={{ fontFamily: "'Cormorant Garamond', serif" }}
             >
-              KORPUS MEBEL
+              Мебельные истории
             </h3>
             <p className="text-white/70 text-sm leading-relaxed mb-6">
-              Производство мебели на заказ с 2010 года. 
-              Индивидуальный дизайн, премиальные материалы, 
+              Производство мебели на заказ в Санкт-Петербурге. 
+              Индивидуальный дизайн, качественные материалы, 
               гарантия качества.
             </p>
             <div className="flex gap-4">
               <a 
-                href="#" 
+                href="https://instagram.com/mebelnye_istorii"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#7D8B7A] transition-colors"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a 
-                href="#" 
+                href="https://t.me/mebelnye_istorii"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#7D8B7A] transition-colors"
               >
                 <Send className="w-5 h-5" />
@@ -72,6 +81,7 @@ export function Footer({ onNavigate }: FooterProps) {
             <ul className="space-y-3">
               {[
                 'Кухни на заказ',
+                'Обновление фасадов',
                 'Шкафы-купе',
                 'Гардеробные',
                 'Гостиные',
@@ -93,34 +103,33 @@ export function Footer({ onNavigate }: FooterProps) {
             <ul className="space-y-4">
               <li>
                 <a 
-                  href="tel:+74951234567"
+                  href="tel:+79046409391"
                   className="flex items-center gap-3 text-white/70 hover:text-white transition-colors"
                 >
                   <Phone className="w-5 h-5 text-[#7D8B7A]" />
-                  <span>+7 (495) 123-45-67</span>
+                  <span>+7 (904) 640-93-91</span>
                 </a>
               </li>
               <li>
                 <a 
-                  href="mailto:info@korpusmebel.ru"
+                  href="mailto:mebelnye.istorii@gmail.com"
                   className="flex items-center gap-3 text-white/70 hover:text-white transition-colors"
                 >
                   <Mail className="w-5 h-5 text-[#7D8B7A]" />
-                  <span>info@korpusmebel.ru</span>
+                  <span>mebelnye.istorii@gmail.com</span>
                 </a>
               </li>
               <li>
                 <div className="flex items-start gap-3 text-white/70">
                   <MapPin className="w-5 h-5 text-[#7D8B7A] flex-shrink-0 mt-0.5" />
-                  <span>г. Москва, ул. Дизайнерская, 15<br />Бизнес-центр "Корпус"</span>
+                  <span>Санкт-Петербург, ул. Савушкина, 85<br />Производство</span>
                 </div>
               </li>
             </ul>
             <div className="mt-6">
               <p className="text-white/50 text-xs">
-                Пн-Пт: 9:00 - 19:00<br />
-                Сб: 10:00 - 16:00<br />
-                Вс: выходной
+                Пн-Пт: 10:00 - 19:00<br />
+                Сб-Вс: выходной
               </p>
             </div>
           </div>
@@ -129,7 +138,7 @@ export function Footer({ onNavigate }: FooterProps) {
         {/* Bottom */}
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/50 text-sm">
-            © 2024 KORPUS MEBEL. Все права защищены.
+            © 2026 Мебельные истории. Все права защищены.
           </p>
           <div className="flex gap-6 text-sm text-white/50">
             <button className="hover:text-white transition-colors">

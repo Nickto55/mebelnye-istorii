@@ -35,10 +35,10 @@ const advantages = [
 ];
 
 const stats = [
-  { value: '14+', label: 'лет опыта' },
-  { value: '500+', label: 'выполненных проектов' },
+  { value: '150+', label: 'выполненных проектов' },
   { value: '98%', label: 'довольных клиентов' },
   { value: '5', label: 'лет гарантии' },
+  { value: 'от 14', label: 'дней — срок изготовления' },
 ];
 
 export function AdvantagesSection() {

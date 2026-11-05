@@ -15,6 +15,7 @@ const steps = [
 
 const furnitureTypes = [
   { id: 'kitchen', name: 'Кухня', icon: '🍳' },
+  { id: 'facades', name: 'Обновление фасадов', icon: '✨' },
   { id: 'wardrobe', name: 'Шкаф/Гардеробная', icon: '👔' },
   { id: 'living', name: 'Гостиная', icon: '🛋️' },
   { id: 'bathroom', name: 'Ванная', icon: '🚿' },

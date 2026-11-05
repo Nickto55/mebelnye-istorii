@@ -19,6 +19,9 @@ const navItems: { label: string; page: Page }[] = [
 export function Header({ currentPage, onNavigate, isScrolled }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // На страницах без тёмного hero-блока шапка должна быть светлой с тёмным текстом
+  const isSolid = isScrolled || currentPage !== 'home';
+
   const handleNavClick = (page: Page) => {
     onNavigate(page);
     setIsMobileMenuOpen(false);
@@ -27,7 +30,7 @@ export function Header({ currentPage, onNavigate, isScrolled }: HeaderProps) {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isSolid
           ? 'bg-white/95 backdrop-blur-md shadow-sm'
           : 'bg-transparent'
       }`}
@@ -37,15 +40,20 @@ export function Header({ currentPage, onNavigate, isScrolled }: HeaderProps) {
           {/* Logo */}
           <button
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-2"
+            className="flex items-center gap-3"
           >
+            <img 
+              src="/logo.jpg" 
+              alt="Мебельные истории" 
+              className="h-11 w-11 rounded-lg object-cover shadow-sm"
+            />
             <span 
               className={`font-serif text-2xl font-semibold tracking-tight transition-colors ${
-                isScrolled ? 'text-[#2D2D2D]' : 'text-white'
+                isSolid ? 'text-[#2D2D2D]' : 'text-white'
               }`}
               style={{ fontFamily: "'Cormorant Garamond', serif" }}
             >
-              KORPUS MEBEL
+              Мебельные истории
             </span>
           </button>
 
@@ -56,7 +64,7 @@ export function Header({ currentPage, onNavigate, isScrolled }: HeaderProps) {
                 key={item.page}
                 onClick={() => handleNavClick(item.page)}
                 className={`text-[13px] font-medium tracking-[0.08em] uppercase transition-all duration-300 relative group ${
-                  isScrolled 
+                  isSolid 
                     ? 'text-[#2D2D2D] hover:text-[#7D8B7A]' 
                     : 'text-white/90 hover:text-white'
                 } ${currentPage === item.page ? 'text-[#7D8B7A]' : ''}`}
@@ -64,7 +72,7 @@ export function Header({ currentPage, onNavigate, isScrolled }: HeaderProps) {
                 {item.label}
                 <span 
                   className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                    isScrolled ? 'bg-[#7D8B7A]' : 'bg-white'
+                    isSolid ? 'bg-[#7D8B7A]' : 'bg-white'
                   } ${currentPage === item.page ? 'w-full' : ''}`}
                 />
               </button>
@@ -74,13 +82,13 @@ export function Header({ currentPage, onNavigate, isScrolled }: HeaderProps) {
           {/* Phone & CTA */}
           <div className="hidden lg:flex items-center gap-6">
             <a 
-              href="tel:+74951234567" 
+              href="tel:+79046409391" 
               className={`flex items-center gap-2 text-sm font-medium transition-colors ${
-                isScrolled ? 'text-[#2D2D2D]' : 'text-white'
+                isSolid ? 'text-[#2D2D2D]' : 'text-white'
               }`}
             >
               <Phone className="w-4 h-4" />
-              +7 (495) 123-45-67
+              +7 (904) 640-93-91
             </a>
             <button 
               onClick={() => handleNavClick('custom-order')}
@@ -94,7 +102,7 @@ export function Header({ currentPage, onNavigate, isScrolled }: HeaderProps) {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`lg:hidden p-2 transition-colors ${
-              isScrolled ? 'text-[#2D2D2D]' : 'text-white'
+              isSolid ? 'text-[#2D2D2D]' : 'text-white'
             }`}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -122,11 +130,11 @@ export function Header({ currentPage, onNavigate, isScrolled }: HeaderProps) {
           ))}
           <div className="mt-6">
             <a 
-              href="tel:+74951234567" 
+              href="tel:+79046409391" 
               className="flex items-center gap-2 text-[#2D2D2D] mb-4"
             >
               <Phone className="w-5 h-5" />
-              +7 (495) 123-45-67
+              +7 (904) 640-93-91
             </a>
             <button 
               onClick={() => handleNavClick('custom-order')}

@@ -61,7 +61,7 @@ export function CTASection() {
                 Получите расчёт стоимости вашего проекта
               </h2>
               <p className="text-white/80 mb-8 leading-relaxed">
-                Оставьте заявку, и наш менеджер свяжется с вами в течение 30 минут. 
+                Оставьте заявку, и мы свяжемся с вами в течение 30 минут. 
                 Обсудим ваши пожелания, ответим на вопросы и подготовим предварительный расчёт.
               </p>
               
@@ -72,8 +72,8 @@ export function CTASection() {
                   </div>
                   <div>
                     <p className="text-white/60 text-sm">Позвоните нам</p>
-                    <a href="tel:+74951234567" className="text-lg font-medium hover:text-white/80 transition-colors">
-                      +7 (495) 123-45-67
+                    <a href="tel:+79046409391" className="text-lg font-medium hover:text-white/80 transition-colors">
+                      +7 (904) 640-93-91
                     </a>
                   </div>
                 </div>
@@ -83,8 +83,8 @@ export function CTASection() {
                   </div>
                   <div>
                     <p className="text-white/60 text-sm">Напишите нам</p>
-                    <a href="mailto:info@korpusmebel.ru" className="text-lg font-medium hover:text-white/80 transition-colors">
-                      info@korpusmebel.ru
+                    <a href="mailto:mebelnye.istorii@gmail.com" className="text-lg font-medium hover:text-white/80 transition-colors">
+                      mebelnye.istorii@gmail.com
                     </a>
                   </div>
                 </div>

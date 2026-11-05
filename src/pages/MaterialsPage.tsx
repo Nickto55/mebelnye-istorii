@@ -246,7 +246,7 @@ export function MaterialsPage({ onNavigate }: MaterialsPageProps) {
               Не знаете, какой материал выбрать?
             </h3>
             <p className="text-white/80 mb-6 max-w-xl mx-auto">
-              Наши дизайнеры помогут подобрать оптимальное решение под ваш бюджет и задачи
+              Поможем подобрать оптимальное решение под ваш бюджет и задачи
             </p>
             <button 
               onClick={() => onNavigate('custom-order')}

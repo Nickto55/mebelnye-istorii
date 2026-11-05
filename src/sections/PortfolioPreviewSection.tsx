@@ -10,7 +10,7 @@ const projects = [
   {
     id: 1,
     title: 'Кухня в скандинавском стиле',
-    location: 'Москва, ЖК "Скандинавия"',
+    location: 'Санкт-Петербург, ЖК "Скандинавия"',
     area: '12 м²',
     price: '485 000 ₽',
     image: '/portfolio-1.jpg',
@@ -19,7 +19,7 @@ const projects = [
   {
     id: 2,
     title: 'Гардеробная комната',
-    location: 'Москва, ЖК "Башня на набережной"',
+    location: 'Санкт-Петербург, ЖК "Цивилизация"',
     area: '18 м²',
     price: '720 000 ₽',
     image: '/portfolio-2.jpg',
@@ -28,7 +28,7 @@ const projects = [
   {
     id: 3,
     title: 'Гостиная с медиастеной',
-    location: 'Москва, ЖК "Сити"',
+    location: 'Санкт-Петербург, ЖК "Лаванда"',
     area: '24 м²',
     price: '650 000 ₽',
     image: '/portfolio-3.jpg',
@@ -37,7 +37,7 @@ const projects = [
   {
     id: 4,
     title: 'Кухня с островом',
-    location: 'Москва, ЖК "Зиларт"',
+    location: 'Санкт-Петербург, ЖК "Полис Приморский"',
     area: '16 м²',
     price: '890 000 ₽',
     image: '/portfolio-4.jpg',

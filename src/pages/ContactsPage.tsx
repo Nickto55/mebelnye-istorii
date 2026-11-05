@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, Instagram, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, Instagram } from 'lucide-react';
 
 export function ContactsPage() {
   const [formData, setFormData] = useState({
@@ -35,7 +35,7 @@ export function ContactsPage() {
           </h1>
           <p className="text-[#6B6B6B] max-w-2xl mx-auto">
             Мы всегда рады ответить на ваши вопросы. Выберите удобный способ связи 
-            или приезжайте к нам в шоурум.
+            или приезжайте к нам на производство.
           </p>
         </div>
 
@@ -55,10 +55,10 @@ export function ContactsPage() {
                   Телефон
                 </h3>
                 <a 
-                  href="tel:+74951234567" 
+                  href="tel:+79046409391" 
                   className="text-[#2D2D2D] hover:text-[#7D8B7A] transition-colors"
                 >
-                  +7 (495) 123-45-67
+                  +7 (904) 640-93-91
                 </a>
               </div>
 
@@ -74,10 +74,10 @@ export function ContactsPage() {
                   Email
                 </h3>
                 <a 
-                  href="mailto:info@korpusmebel.ru" 
+                  href="mailto:mebelnye.istorii@gmail.com" 
                   className="text-[#2D2D2D] hover:text-[#7D8B7A] transition-colors"
                 >
-                  info@korpusmebel.ru
+                  mebelnye.istorii@gmail.com
                 </a>
               </div>
 
@@ -90,11 +90,11 @@ export function ContactsPage() {
                   className="text-lg text-[#2D2D2D] font-medium mb-2"
                   style={{ fontFamily: "'Cormorant Garamond', serif" }}
                 >
-                  Адрес
+                  Адрес производства
                 </h3>
                 <p className="text-[#2D2D2D]">
-                  г. Москва, ул. Дизайнерская, 15<br />
-                  Бизнес-центр "Корпус"
+                  Санкт-Петербург,<br />
+                  ул. Савушкина, 85
                 </p>
               </div>
 
@@ -110,8 +110,8 @@ export function ContactsPage() {
                   Режим работы
                 </h3>
                 <p className="text-[#2D2D2D]">
-                  Пн-Пт: 9:00 — 19:00<br />
-                  Сб: 10:00 — 16:00
+                  Пн-Пт: 10:00 — 19:00<br />
+                  Сб-Вс: выходной
                 </p>
               </div>
             </div>
@@ -124,27 +124,31 @@ export function ContactsPage() {
               >
                 Мы в соцсетях
               </h3>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4">
                 <a 
-                  href="#"
+                  href="https://instagram.com/mebelnye_istorii"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 bg-[#F6F4F1] rounded-xl hover:bg-[#7D8B7A] hover:text-white transition-colors group"
                 >
                   <Instagram className="w-5 h-5" />
-                  <span className="text-sm font-medium">Instagram</span>
+                  <span className="text-sm font-medium">@mebelnye_istorii</span>
                 </a>
                 <a 
-                  href="#"
+                  href="https://t.me/mebelnye_istorii"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 bg-[#F6F4F1] rounded-xl hover:bg-[#7D8B7A] hover:text-white transition-colors group"
                 >
                   <Send className="w-5 h-5" />
-                  <span className="text-sm font-medium">Telegram</span>
+                  <span className="text-sm font-medium">@mebelnye_istorii</span>
                 </a>
                 <a 
-                  href="#"
+                  href="mailto:mebelnye.istorii@gmail.com"
                   className="flex items-center gap-3 px-4 py-3 bg-[#F6F4F1] rounded-xl hover:bg-[#7D8B7A] hover:text-white transition-colors group"
                 >
-                  <MessageCircle className="w-5 h-5" />
-                  <span className="text-sm font-medium">WhatsApp</span>
+                  <Mail className="w-5 h-5" />
+                  <span className="text-sm font-medium">Написать на почту</span>
                 </a>
               </div>
             </div>
@@ -236,9 +240,9 @@ export function ContactsPage() {
             <div className="text-center">
               <MapPin className="w-12 h-12 text-[#7D8B7A] mx-auto mb-4" />
               <p className="text-[#2D2D2D] font-medium mb-2">Карта проезда</p>
-              <p className="text-[#6B6B6B] text-sm">г. Москва, ул. Дизайнерская, 15</p>
+              <p className="text-[#6B6B6B] text-sm">Санкт-Петербург, ул. Савушкина, 85</p>
               <a 
-                href="https://maps.google.com" 
+                href="https://www.google.com/maps/search/?api=1&query=%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%2C+%D1%83%D0%BB.+%D0%A1%D0%B0%D0%B2%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%B0%2C+85" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-4 text-[#7D8B7A] hover:underline"
