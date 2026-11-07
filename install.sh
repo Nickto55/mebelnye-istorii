@@ -42,7 +42,16 @@ if ! command -v docker >/dev/null 2>&1; then
   echo "==> Устанавливаю Docker..."
   apt-get update
   apt-get install -y ca-certificates curl
-  curl -fsSL https://get.docker.com | sh
+  install -m 0755 -d /etc/apt/keyrings
+  curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" -o /etc/apt/keyrings/docker.asc
+  chmod a+r /etc/apt/keyrings/docker.asc
+  . /etc/os-release
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu ${VERSION_CODENAME} stable" \
+    > /etc/apt/sources.list.d/docker.list
+  apt-get update
+  # Без docker-model-plugin: его нет в репозитории для Ubuntu 20.04 (focal),
+  # из-за него падает официальный скрипт get.docker.com
+  apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
   systemctl enable --now docker
 else
   echo "==> Docker уже установлен, пропускаю."
